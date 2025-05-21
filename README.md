@@ -48,13 +48,13 @@
 
 An AI voice assistant powered by Google's GEMINI model, enhancing productivity and daily tasks through voice commands.
 
-### 🔹 [Skye Bot](https://github.com/mabdullahsaqib/skye)
+### 🔹 [Mobile DRS System](https://github.com/mabdullahsaqib/mobile-drs-system)  
 
-A crypto trading assistant leveraging AI for seamless trade execution and wallet management.
+A real-time cricket decision system that analyzes video to deliver DRS calls.
 
-### 🔹 [Samigo](https://github.com/mabdullahsaqib/samigo)
+### 🔹 [CollabIn](https://github.com/mabdullahsaqib/collabin)  
 
-A personal AI assistant that provides emergency help, real-time translation, and day-to-day assistance.
+A Fiverr-style platform connecting brands with micro-influencers for video sponsorships.
 
 ---
 
