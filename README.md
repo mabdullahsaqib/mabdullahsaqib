@@ -19,7 +19,7 @@
 
 ## 🎵 Jamming While I Code
 
-[![Spotify](https://novatorem.vercel.app/api/orchestrator?background_type=blur_dark)](https://open.spotify.com/user/spotify)
+[![Spotify](https://novatorem.vercel.app/api/orchestrator?background_type=blur_dark&border_color=00ffff )](https://open.spotify.com/user/spotify)
 
 ---
 
