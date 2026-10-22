@@ -1,19 +1,46 @@
-# 👋 Hey there! I'm M. Abdullah Saqib
+# Hi, I'm Muhammad Abdullah Saqib
 
-**AI Engineer | Full-Stack Developer | 3D Artist | Problem Solver**
+**CTO & Co-Founder at [Collabin](https://collabin.ai/) · AI systems engineer · IEEE-published researcher**
 
-🚀 Welcome to my GitHub! I'm passionate about building intelligent systems, designing web & mobile apps, and creating immersive 3D experiences.
+I build AI systems and the products around them. Right now that's Collabin, a marketplace that matches brands with the right creators, where I lead the tech side. Before that, I did research on telling AI-generated content from real content.
+
+I'm most interested in multimodal AI, intelligent agents and AGI.
 
 ---
 
-## 🎯 About Me
+## 🔭 What I'm working on
 
-- 🔧 **Tech Stack**: Python | JavaScript | TypeScript | React | Flutter | Flask | Firebase
-- 🤖 **AI Focus**: Natural Language Processing, Machine Learning, and AI-driven applications.
-- 🎨 **Creative Side**: Blender 3D artist, crafting visuals and animations for fun and projects.
-- 🌐 **Web & App Dev**: Full-stack development for sleek, responsive web and mobile platforms.
+- **[Collabin](https://collabin.ai/)**: building the platform end to end, from the mobile apps to creator recommendations and campaign analytics. 2,000+ users so far.
+- **Research**: AI-generated content detection, and where it breaks.
 
-💡 Always learning, creating, and sharing new things!
+---
+
+## 🌟 Selected work
+
+### [Authentica](https://ieeexplore.ieee.org/document/11577723) · IEEE, ICIT 2026
+Our final year project at FAST-NUCES: one framework that tells whether text or an image was made by AI. It held above 95% accuracy on content it had never seen. The image work is published in IEEE as part of the ICIT 2026 proceedings.
+
+### [Mobile DRS](https://github.com/mabdullahsaqib/Mobile-DRS-System)
+A cricket Decision Review System that runs on video and gives an on-field verdict in under 10 seconds. I led the 30 developers who built it.
+
+### [Aura](https://github.com/mabdullahsaqib/Aura2)
+A voice assistant built on Gemini that handles everyday tasks through voice commands.
+
+---
+
+## 🧰 What I'm working with
+
+![Dart](https://img.shields.io/badge/Dart-0175C2?style=for-the-badge&logo=dart&logoColor=white)
+![Flutter](https://img.shields.io/badge/Flutter-02569B?style=for-the-badge&logo=flutter&logoColor=white)
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
+![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white)
+![Firebase](https://img.shields.io/badge/Firebase-DD2C00?style=for-the-badge&logo=firebase&logoColor=white)
+![PyTorch](https://img.shields.io/badge/PyTorch-EE4C2C?style=for-the-badge&logo=pytorch&logoColor=white)
+![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white)
+![C++](https://img.shields.io/badge/C%2B%2B-00599C?style=for-the-badge&logo=cplusplus&logoColor=white)
+
+**Also:** TensorFlow · scikit-learn · transformers · computer vision · NLP · RAG · MySQL · Git
 
 ---
 
@@ -26,45 +53,13 @@
 ## 📊 GitHub Stats
 
 <div align="center">
-  <a href="https://github.com/mabdullahsaqib">
-    <img align="center" src="https://github-stats-extended.vercel.app/api?username=mabdullahsaqib&show_icons=true&include_all_commits=true&count_private=true&theme=react&line_height=40" />
-  </a>
-  <!--a href="https://github.com/mabdullahsaqib">
-    <img align="right" src="https://github-stats-extended.vercel.app/api/top-langs/?username=mabdullahsaqib&theme=react&line_height=40&hide=css,cmake&langs_count=8&layout=compact" />
-  </a-->
+  <img src="metrics-overview.svg" alt="GitHub overview" width="49%" align="top" />
+  <img src="metrics-skills.svg" alt="Most used languages" width="49%" align="top" />
 </div>
 
 ---
 
-## 🚀 Most Used Languages
+## 📫 Get in touch
 
-![Python](https://img.shields.io/badge/-Python-3776AB?style=flat-square&logo=python&logoColor=ffffff)
-
----
-
-## 🌟 Recent Projects
-
-### 🔹 [Aura](https://github.com/mabdullahsaqib/aura2)
-
-An AI voice assistant powered by Google's GEMINI model, enhancing productivity and daily tasks through voice commands.
-
-### 🔹 [Mobile DRS System](https://github.com/mabdullahsaqib/mobile-drs-system)  
-
-A real-time cricket decision system that analyzes video to deliver DRS calls.
-
-### 🔹 [CollabIn](https://github.com/mabdullahsaqib/collabin)  
-
-A Fiverr-style platform connecting brands with micro-influencers for video sponsorships.
-
----
-
-## 📫 Let's Connect
-
-- 💼 [LinkedIn](https://linkedin.com/in/mas-ai)
-- ✉️ Reach me at **[mabdullahsaqib2004@gmail.com](mailto:mabdullahsaqib2004@gmail.com)**
-
----
-
-## 🚀 Fun Fact
-
-I believe that technology can solve almost anything... but I still can't find the perfect IDE theme! 😅
+- 💼 [LinkedIn](https://linkedin.com/in/mabdullahsaqib)
+- ✉️ [mabdullahsaqib2004@gmail.com](mailto:mabdullahsaqib2004@gmail.com)
