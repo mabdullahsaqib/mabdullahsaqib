@@ -17,8 +17,7 @@
 <rect x="343.59" y="58" width="8.62" height="10" fill="#e34c26"/>
 <rect x="354.20" y="58" width="4.28" height="10" fill="#f1e05a"/>
 <rect x="360.48" y="58" width="3.85" height="10" fill="#7355dd"/>
-<rect x="366.34" y="58" width="2.21" height="10" fill="#6E4C13"/>
-<rect x="370.54" y="58" width="3.46" height="10" fill="#3d444d"/></g>
+<rect x="366.34" y="58" width="7.66" height="10" fill="#3d444d"/></g>
 <circle cx="28.5" cy="97.5" r="4.5" fill="#3178c6"/>
 <text class="label" x="40" y="102" style="fill: #f0f6fc">TypeScript</text>
 <text class="label" x="188" y="102" text-anchor="end">44.7%</text>
@@ -40,10 +39,7 @@
 <circle cx="28.5" cy="175.5" r="4.5" fill="#7355dd"/>
 <text class="label" x="40" y="180" style="fill: #f0f6fc">C#</text>
 <text class="label" x="188" y="180" text-anchor="end">1.7%</text>
-<circle cx="216.5" cy="175.5" r="4.5" fill="#6E4C13"/>
-<text class="label" x="228" y="180" style="fill: #f0f6fc">Assembly</text>
-<text class="label" x="376" y="180" text-anchor="end">1.2%</text>
-<circle cx="28.5" cy="201.5" r="4.5" fill="#3d444d"/>
-<text class="label" x="40" y="206" style="fill: #f0f6fc">Other</text>
-<text class="label" x="188" y="206" text-anchor="end">1.6%</text>
+<circle cx="216.5" cy="175.5" r="4.5" fill="#3d444d"/>
+<text class="label" x="228" y="180" style="fill: #f0f6fc">Other</text>
+<text class="label" x="376" y="180" text-anchor="end">2.7%</text>
 </svg>
