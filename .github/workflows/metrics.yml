@@ -32,10 +32,7 @@ jobs:
           plugin_isocalendar: yes
           plugin_isocalendar_duration: full-year
 
-          # Lines of code added/removed + history graph
-          plugin_lines: yes
-          plugin_lines_sections: base, history
-          plugin_lines_delay: 30
+          # Lines-of-code plugin left out: on v3.34 it runs ~18 min, then errors and breaks the card
 
           # Your open/closed issues and PRs
           plugin_followup: yes
