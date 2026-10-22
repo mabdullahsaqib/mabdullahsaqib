@@ -52,15 +52,12 @@ jobs:
 
           # Languages (includes private repos)
           plugin_languages: yes
-          plugin_languages_sections: most-used, recently-used
+          # "recently-used" is left out: GitHub's events API no longer lists push commits,
+          # which crashes that section (also unfixed upstream)
+          plugin_languages_sections: most-used
           plugin_languages_details: percentage
           plugin_languages_limit: 8
           plugin_languages_ignored: css, cmake
-
-          # When you code (hours of day, days of week)
-          plugin_habits: yes
-          plugin_habits_facts: yes
-          plugin_habits_charts: yes
 
           # Trophy-style ranks, only B and above
           plugin_achievements: yes
