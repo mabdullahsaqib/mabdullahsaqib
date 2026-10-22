@@ -21,22 +21,20 @@ async function graphql(query, variables = {}) {
   return body.data
 }
 
-async function repositories(field, args) {
-  const nodes = []
+async function ownedStars() {
+  let stars = 0
   let cursor = null
   do {
-    const data = await graphql(
-      `query($cursor: String) { viewer { ${field}(first: 50, after: $cursor, ${args}) {
-        pageInfo { hasNextPage endCursor }
-        nodes { nameWithOwner isFork stargazerCount languages(first: 10, orderBy: {field: SIZE, direction: DESC}) { edges { size node { name color } } } }
+    const { viewer: { repositories: page } } = await graphql(
+      `query($cursor: String) { viewer { repositories(first: 100, after: $cursor, ownerAffiliations: OWNER, isFork: false) {
+        pageInfo { hasNextPage endCursor } nodes { stargazerCount }
       } } }`,
       { cursor },
     )
-    const page = data.viewer[field]
-    nodes.push(...page.nodes)
+    stars += page.nodes.reduce((sum, r) => sum + r.stargazerCount, 0)
     cursor = page.pageInfo.hasNextPage ? page.pageInfo.endCursor : null
   } while (cursor)
-  return nodes
+  return stars
 }
 
 async function fetchStats() {
@@ -51,11 +49,12 @@ async function fetchStats() {
   const yearQuery = years.map(year => `y${year}: contributionsCollection(from: "${year}-01-01T00:00:00Z", to: "${year}-12-31T23:59:59Z") {
     totalCommitContributions restrictedContributionsCount totalPullRequestReviewContributions
     contributionCalendar { weeks { contributionDays { date contributionCount } } }
+    commitContributionsByRepository(maxRepositories: 100) {
+      contributions { totalCount }
+      repository { nameWithOwner languages(first: 10, orderBy: {field: SIZE, direction: DESC}) { edges { size node { name color } } } }
+    }
   }`).join("\n")
   const collections = Object.values((await graphql(`{ viewer { ${yearQuery} } }`)).viewer)
-
-  const owned = await repositories("repositories", "ownerAffiliations: OWNER, isFork: false")
-  const contributed = await repositories("repositoriesContributedTo", "includeUserRepositories: false, contributionTypes: [COMMIT, PULL_REQUEST]")
 
   const days = collections.flatMap(c => c.contributionCalendar.weeks.flatMap(w => w.contributionDays))
   return {
@@ -64,9 +63,9 @@ async function fetchStats() {
     pullRequests: viewer.pullRequests.totalCount,
     merged: viewer.merged.totalCount,
     closed: viewer.closed.totalCount,
-    stars: owned.reduce((sum, r) => sum + r.stargazerCount, 0),
+    stars: await ownedStars(),
     longestStreak: longestStreak(days),
-    languages: languageShares([...owned, ...contributed]),
+    languages: languageShares(collections.flatMap(c => c.commitContributionsByRepository)),
   }
 }
 
@@ -88,22 +87,22 @@ function shiftDate(date, days) {
   return d.toISOString().slice(0, 10)
 }
 
-function languageShares(repos) {
-  const seen = new Set()
-  const bytes = new Map()
+// Each repo's languages count in proportion to the commits made there, so the card shows
+// what is actually being written rather than which repos happen to be largest.
+function languageShares(contributions) {
+  const weight = new Map()
   const colors = new Map()
-  for (const repo of repos) {
-    if (repo.isFork || seen.has(repo.nameWithOwner)) continue
-    seen.add(repo.nameWithOwner)
-    for (const { size, node } of repo.languages.edges) {
-      if (LANGUAGE_IGNORED.has(node.name)) continue
+  for (const { contributions: { totalCount: commits }, repository } of contributions) {
+    const edges = repository.languages.edges.filter(e => !LANGUAGE_IGNORED.has(e.node.name))
+    const repoBytes = edges.reduce((sum, e) => sum + e.size, 0)
+    for (const { size, node } of edges) {
       const name = LANGUAGE_ALIASES[node.name] ?? node.name
-      bytes.set(name, (bytes.get(name) ?? 0) + size)
+      weight.set(name, (weight.get(name) ?? 0) + commits * size / repoBytes)
       if (!colors.has(name) || name === node.name) colors.set(name, node.color)
     }
   }
-  const total = [...bytes.values()].reduce((a, b) => a + b, 0)
-  const sorted = [...bytes].sort((a, b) => b[1] - a[1]).map(([name, size]) => ({ name, share: size / total, color: colors.get(name) ?? "#8b949e" }))
+  const total = [...weight.values()].reduce((a, b) => a + b, 0)
+  const sorted = [...weight].sort((a, b) => b[1] - a[1]).map(([name, w]) => ({ name, share: w / total, color: colors.get(name) ?? "#8b949e" }))
   // Languages under 1% are noise; fold them (and anything past the limit) into "Other"
   const major = sorted.filter(l => l.share >= 0.01)
   const shown = major.length > LANGUAGES_SHOWN ? major.slice(0, LANGUAGES_SHOWN - 1) : major
