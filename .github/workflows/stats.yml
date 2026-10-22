@@ -1,0 +1,36 @@
+name: Stats
+
+on:
+  schedule:
+    - cron: "0 0 * * *"   # once a day
+  workflow_dispatch:       # lets you run it manually from the Actions tab
+  push:
+    branches: ["main"]
+    paths: [".github/**"]
+
+permissions:
+  contents: write
+
+jobs:
+  stats:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version: 22
+
+      # Reads your stats (including private repos) with the METRICS_TOKEN secret
+      # and draws the cards into stats/. No third-party code sees the token.
+      - run: node .github/scripts/stats.mjs
+        env:
+          GH_TOKEN: ${{ secrets.METRICS_TOKEN }}
+
+      - name: Commit the cards if they changed
+        run: |
+          git add stats
+          git diff --cached --quiet && exit 0
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Update stats cards"
+          git push
