@@ -25,6 +25,8 @@ jobs:
           config_timezone: Asia/Karachi   # Lahore
           base: header, activity, community, repositories
           base_indepth: yes
+          # Smaller repo batches: at 100 the query times out and v3.34 then loads no repos at all
+          repositories_batch: 25
 
           # Full-year 3D contribution calendar
           plugin_isocalendar: yes
@@ -49,18 +51,15 @@ jobs:
           filename: metrics-skills.svg
           config_timezone: Asia/Karachi   # Lahore
           base: ""
+          # Smaller repo batches: at 100 the query times out and v3.34 then loads no repos at all
+          repositories_batch: 25
 
           # Languages (includes private repos)
           plugin_languages: yes
           # "recently-used" is left out: GitHub's events API no longer lists push commits,
-          # which crashes that section (also unfixed upstream)
+          # which crashes that section (also unfixed upstream). Achievements and habits are
+          # left out for the same reason (GitHub API changes, fixes not released yet)
           plugin_languages_sections: most-used
           plugin_languages_details: percentage
           plugin_languages_limit: 8
           plugin_languages_ignored: css, cmake
-
-          # Trophy-style ranks, only B and above
-          plugin_achievements: yes
-          plugin_achievements_display: detailed
-          plugin_achievements_threshold: B
-          plugin_achievements_limit: 6
