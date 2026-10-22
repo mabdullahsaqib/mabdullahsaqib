@@ -1,0 +1,69 @@
+name: Metrics
+
+on:
+  schedule:
+    - cron: "0 0 * * *"   # once a day
+  workflow_dispatch:       # lets you run it manually from the Actions tab
+  push:
+    branches: ["main"]
+
+permissions:
+  contents: write
+
+jobs:
+  github-metrics:
+    runs-on: ubuntu-latest
+    steps:
+      # ---------- Card 1: Overview ----------
+      - name: Overview card
+        uses: lowlighter/metrics@65836723097537a54cd8eb90f61839426b4266b6 # v3.34, pinned
+        with:
+          token: ${{ secrets.METRICS_TOKEN }}
+          user: mabdullahsaqib
+          template: classic
+          filename: metrics-overview.svg
+          config_timezone: Asia/Karachi   # Lahore
+          base: header, activity, community, repositories
+          base_indepth: yes
+
+          # Full-year 3D contribution calendar
+          plugin_isocalendar: yes
+          plugin_isocalendar_duration: full-year
+
+          # Lines of code added/removed + history graph
+          plugin_lines: yes
+          plugin_lines_sections: base, history
+          plugin_lines_delay: 30
+
+          # Your open/closed issues and PRs
+          plugin_followup: yes
+          plugin_followup_sections: user
+
+      # ---------- Card 2: Skills ----------
+      - name: Skills card
+        uses: lowlighter/metrics@65836723097537a54cd8eb90f61839426b4266b6 # v3.34, pinned
+        with:
+          token: ${{ secrets.METRICS_TOKEN }}
+          user: mabdullahsaqib
+          template: classic
+          filename: metrics-skills.svg
+          config_timezone: Asia/Karachi   # Lahore
+          base: ""
+
+          # Languages (includes private repos)
+          plugin_languages: yes
+          plugin_languages_sections: most-used, recently-used
+          plugin_languages_details: percentage
+          plugin_languages_limit: 8
+          plugin_languages_ignored: css, cmake
+
+          # When you code (hours of day, days of week)
+          plugin_habits: yes
+          plugin_habits_facts: yes
+          plugin_habits_charts: yes
+
+          # Trophy-style ranks, only B and above
+          plugin_achievements: yes
+          plugin_achievements_display: detailed
+          plugin_achievements_threshold: B
+          plugin_achievements_limit: 6
