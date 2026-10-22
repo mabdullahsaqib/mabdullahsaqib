@@ -7,6 +7,7 @@ const OUT_DIR = "stats"
 const LANGUAGE_ALIASES = { "Jupyter Notebook": "Python" } // notebooks are Python work
 const LANGUAGE_IGNORED = new Set(["CSS", "SCSS", "CMake", "Makefile", "Dockerfile", "Procfile", "Batchfile"])
 const LANGUAGES_SHOWN = 8
+const GRADE = "S+" // chosen by the profile owner, shown in the ring
 
 // ---------- data ----------
 
@@ -41,8 +42,6 @@ async function fetchStats() {
   const { viewer } = await graphql(`{ viewer {
     contributionsCollection { contributionYears }
     pullRequests { totalCount }
-    merged: pullRequests(states: MERGED) { totalCount }
-    closed: pullRequests(states: CLOSED) { totalCount }
   } }`)
 
   const years = viewer.contributionsCollection.contributionYears
@@ -61,8 +60,6 @@ async function fetchStats() {
     commits: collections.reduce((sum, c) => sum + c.totalCommitContributions + c.restrictedContributionsCount, 0),
     reviews: collections.reduce((sum, c) => sum + c.totalPullRequestReviewContributions, 0),
     pullRequests: viewer.pullRequests.totalCount,
-    merged: viewer.merged.totalCount,
-    closed: viewer.closed.totalCount,
     stars: await ownedStars(),
     longestStreak: longestStreak(days),
     languages: languageShares(collections.flatMap(c => c.commitContributionsByRepository)),
@@ -165,17 +162,13 @@ function activityCard(s, t) {
 <text class="value" x="248" y="${y}" text-anchor="end">${value}</text>`
   }).join("\n")
 
-  // The one accent: share of resolved pull requests that were merged
-  const resolved = s.merged + s.closed
-  const rate = resolved ? s.merged / resolved : 0
-  const cx = 324, cy = 104, r = 44, circumference = 2 * Math.PI * r
-  const ring = `<circle cx="${cx}" cy="${cy}" r="${r}" fill="none" stroke="${t.track}" stroke-width="8"/>
-<circle cx="${cx}" cy="${cy}" r="${r}" fill="none" stroke="${t.accent}" stroke-width="8" stroke-linecap="round"
-  stroke-dasharray="${(rate * circumference).toFixed(2)} ${circumference.toFixed(2)}" transform="rotate(-90 ${cx} ${cy})"/>
-<text x="${cx}" y="${cy + 8}" text-anchor="middle" style="font-size: 24px; font-weight: 600; letter-spacing: -0.02em">${Math.round(rate * 100)}%</text>
-<text class="label" x="${cx}" y="180" text-anchor="middle">of PRs merged</text>`
+  // The one accent: the grade, in a closed ring
+  const cx = 324, cy = 104, r = 44
+  const ring = `<circle cx="${cx}" cy="${cy}" r="${r}" fill="none" stroke="${t.accent}" stroke-width="8"/>
+<text x="${cx}" y="${cy + 10}" text-anchor="middle" style="font-size: 28px; font-weight: 600; letter-spacing: -0.02em">${GRADE}</text>
+<text class="label" x="${cx}" y="180" text-anchor="middle">Grade</text>`
 
-  return frame(t, `GitHub activity: ${number(s.commits)} commits, ${number(s.pullRequests)} pull requests, ${Math.round(rate * 100)}% merged`,
+  return frame(t, `GitHub activity: ${number(s.commits)} commits, ${number(s.pullRequests)} pull requests, grade ${GRADE}`,
     `<text class="title" x="${PAD}" y="40">Activity</text>\n${rows}\n${ring}`)
 }
 
@@ -214,4 +207,4 @@ for (const [name, theme] of Object.entries(THEMES)) {
   await writeFile(`${OUT_DIR}/activity-${name}.svg`, activityCard(stats, theme))
   await writeFile(`${OUT_DIR}/languages-${name}.svg`, languagesCard(stats, theme))
 }
-console.log(`commits ${stats.commits}, PRs ${stats.pullRequests} (${stats.merged} merged), reviews ${stats.reviews}, stars ${stats.stars}, streak ${stats.longestStreak}, languages ${stats.languages.length}`)
+console.log(`commits ${stats.commits}, PRs ${stats.pullRequests}, reviews ${stats.reviews}, stars ${stats.stars}, streak ${stats.longestStreak}, languages ${stats.languages.length}`)

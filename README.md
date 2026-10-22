@@ -4,6 +4,12 @@ I'm the CTO and Co-Founder of [Collabin](https://collabin.ai/), a marketplace th
 
 I'm most interested in multimodal AI, intelligent agents and AGI.
 
+## Jamming while I code
+
+[![Spotify](https://novatorem.vercel.app/api/orchestrator?background_type=blur_dark)](https://open.spotify.com/user/spotify)
+
+## GitHub stats
+
 <p align="center">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="stats/activity-dark.svg">
@@ -22,10 +28,6 @@ Independent research on telling AI-generated content from real content. One fram
 
 **[Mobile DRS](https://github.com/mabdullahsaqib/Mobile-DRS-System)**<br>
 A cricket Decision Review System that gives an on-field verdict from video in under 10 seconds. I led the 30 developers who built it.
-
-## Jamming while I code
-
-[![Spotify](https://novatorem.vercel.app/api/orchestrator?background_type=blur_dark)](https://open.spotify.com/user/spotify)
 
 ## Get in touch
 
