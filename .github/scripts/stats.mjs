@@ -105,9 +105,10 @@ function languageShares(contributions) {
   const sorted = [...weight].sort((a, b) => b[1] - a[1]).map(([name, w]) => ({ name, share: w / total, color: colors.get(name) ?? "#8b949e" }))
   // Languages under 1% are noise; fold them (and anything past the limit) into "Other"
   const major = sorted.filter(l => l.share >= 0.01)
-  const shown = major.length > LANGUAGES_SHOWN ? major.slice(0, LANGUAGES_SHOWN - 1) : major
-  const rest = 1 - shown.reduce((sum, l) => sum + l.share, 0)
-  return rest >= 0.01 ? [...shown, { name: "Other", share: rest, color: null }] : shown
+  const restAfter = shown => 1 - shown.reduce((sum, l) => sum + l.share, 0)
+  if (restAfter(major.slice(0, LANGUAGES_SHOWN)) < 0.01) return major.slice(0, LANGUAGES_SHOWN)
+  const shown = major.slice(0, LANGUAGES_SHOWN - 1) // leave the last slot for "Other"
+  return [...shown, { name: "Other", share: restAfter(shown), color: null }]
 }
 
 // ---------- rendering ----------
