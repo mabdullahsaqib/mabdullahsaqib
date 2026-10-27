@@ -10,14 +10,14 @@
 <rect x="0.5" y="0.5" width="399" height="203" rx="12" fill="none" stroke="#d1d9e0"/>
 <text class="title" x="24" y="40">Languages</text>
 <clipPath id="bar"><rect x="24" y="58" width="352" height="10" rx="5"/></clipPath>
-<g clip-path="url(#bar)"><rect x="24.00" y="58" width="154.91" height="10" fill="#3178c6"/>
-<rect x="180.91" y="58" width="79.21" height="10" fill="#3572A5"/>
-<rect x="262.12" y="58" width="58.85" height="10" fill="#00B4AB"/>
-<rect x="322.97" y="58" width="18.67" height="10" fill="#f34b7d"/>
-<rect x="343.64" y="58" width="8.60" height="10" fill="#e34c26"/>
-<rect x="354.24" y="58" width="4.27" height="10" fill="#f1e05a"/>
-<rect x="360.51" y="58" width="3.84" height="10" fill="#7355dd"/>
-<rect x="366.35" y="58" width="7.65" height="10" fill="#d1d9e0"/></g>
+<g clip-path="url(#bar)"><rect x="24.00" y="58" width="154.85" height="10" fill="#3178c6"/>
+<rect x="180.85" y="58" width="79.31" height="10" fill="#3572A5"/>
+<rect x="262.16" y="58" width="58.83" height="10" fill="#00B4AB"/>
+<rect x="322.99" y="58" width="18.67" height="10" fill="#f34b7d"/>
+<rect x="343.65" y="58" width="8.59" height="10" fill="#e34c26"/>
+<rect x="354.25" y="58" width="4.27" height="10" fill="#f1e05a"/>
+<rect x="360.52" y="58" width="3.84" height="10" fill="#7355dd"/>
+<rect x="366.36" y="58" width="7.64" height="10" fill="#d1d9e0"/></g>
 <circle cx="28.5" cy="97.5" r="4.5" fill="#3178c6"/>
 <text class="label" x="40" y="102" style="fill: #1f2328">TypeScript</text>
 <text class="label" x="188" y="102" text-anchor="end">44.6%</text>
