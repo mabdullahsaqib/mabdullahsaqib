@@ -1,5 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="400" height="204" viewBox="0 0 400 204" role="img" aria-label="Most used languages: TypeScript 44.4%, Python 23.8%, Dart 17.2%">
-<title>Most used languages: TypeScript 44.4%, Python 23.8%, Dart 17.2%</title>
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="204" viewBox="0 0 400 204" role="img" aria-label="Most used languages: TypeScript 44.3%, Python 23.9%, Dart 17.2%">
+<title>Most used languages: TypeScript 44.3%, Python 23.9%, Dart 17.2%</title>
 <style>
   text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif; fill: #1f2328; font-variant-numeric: tabular-nums; }
   .title { font-size: 16px; font-weight: 600; letter-spacing: -0.01em; }
@@ -10,20 +10,20 @@
 <rect x="0.5" y="0.5" width="399" height="203" rx="12" fill="none" stroke="#d1d9e0"/>
 <text class="title" x="24" y="40">Languages</text>
 <clipPath id="bar"><rect x="24" y="58" width="352" height="10" rx="5"/></clipPath>
-<g clip-path="url(#bar)"><rect x="24.00" y="58" width="154.20" height="10" fill="#3178c6"/>
-<rect x="180.20" y="58" width="81.80" height="10" fill="#3572A5"/>
-<rect x="264.00" y="58" width="58.57" height="10" fill="#00B4AB"/>
-<rect x="324.57" y="58" width="16.74" height="10" fill="#f34b7d"/>
-<rect x="343.31" y="58" width="10.41" height="10" fill="#e34c26"/>
-<rect x="355.72" y="58" width="3.74" height="10" fill="#f1e05a"/>
-<rect x="361.46" y="58" width="3.28" height="10" fill="#7355dd"/>
+<g clip-path="url(#bar)"><rect x="24.00" y="58" width="154.11" height="10" fill="#3178c6"/>
+<rect x="180.11" y="58" width="81.98" height="10" fill="#3572A5"/>
+<rect x="264.09" y="58" width="58.49" height="10" fill="#00B4AB"/>
+<rect x="324.58" y="58" width="16.72" height="10" fill="#f34b7d"/>
+<rect x="343.30" y="58" width="10.44" height="10" fill="#e34c26"/>
+<rect x="355.74" y="58" width="3.73" height="10" fill="#f1e05a"/>
+<rect x="361.47" y="58" width="3.28" height="10" fill="#7355dd"/>
 <rect x="366.75" y="58" width="7.25" height="10" fill="#d1d9e0"/></g>
 <circle cx="28.5" cy="97.5" r="4.5" fill="#3178c6"/>
 <text class="label" x="40" y="102" style="fill: #1f2328">TypeScript</text>
-<text class="label" x="188" y="102" text-anchor="end">44.4%</text>
+<text class="label" x="188" y="102" text-anchor="end">44.3%</text>
 <circle cx="216.5" cy="97.5" r="4.5" fill="#3572A5"/>
 <text class="label" x="228" y="102" style="fill: #1f2328">Python</text>
-<text class="label" x="376" y="102" text-anchor="end">23.8%</text>
+<text class="label" x="376" y="102" text-anchor="end">23.9%</text>
 <circle cx="28.5" cy="123.5" r="4.5" fill="#00B4AB"/>
 <text class="label" x="40" y="128" style="fill: #1f2328">Dart</text>
 <text class="label" x="188" y="128" text-anchor="end">17.2%</text>
